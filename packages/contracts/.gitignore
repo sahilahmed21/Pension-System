@@ -1,0 +1,61 @@
+Git Setup for Your Pension System Project
+What Files to Push to GitHub
+✅ YES - Push These Files:
+
+frontend/ - Your entire React frontend
+packages/contracts/src/ - Your smart contracts
+packages/contracts/test/ - Your test files
+packages/contracts/script/ - Your deployment scripts
+packages/contracts/foundry.toml - Configuration
+packages/contracts/foundry.lock - Dependency lock file
+packages/contracts/README.md - Documentation
+packages/contracts/.gitignore - Git ignore rules
+
+❌ NO - Don't Push These (Add to .gitignore):
+
+packages/contracts/lib/ - Dependencies (too large, can be reinstalled)
+packages/contracts/out/ - Compiled contracts (generated files)
+packages/contracts/cache/ - Build cache
+node_modules/ - Frontend dependencies
+.env files - Environment variables
+
+Step 1: Create .gitignore Files
+Root Project .gitignore:
+bash# From your project root directory
+cd "/mnt/c/personal stuff/WEB D/projects/PensionSystem"
+
+cat > .gitignore << 'EOF'
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+*/dist/
+*/build/
+EOF
